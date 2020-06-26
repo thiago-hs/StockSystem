@@ -1,4 +1,4 @@
-package org.fatec.trabLabEng.stockSystem;
+package org.fatec.trabLabEng.stockSystem.controllers;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/teste")
 public class IndexController {
 
 	@GetMapping(produces="application/json")
