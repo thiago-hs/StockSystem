@@ -1,4 +1,4 @@
-package com.fatec.TrabLabEng.StockSystem;
+package org.fatec.trabLabEng.stockSystem;
 
 import javax.sql.DataSource;
 

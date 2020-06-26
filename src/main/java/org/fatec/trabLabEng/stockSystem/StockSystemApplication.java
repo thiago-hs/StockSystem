@@ -1,4 +1,4 @@
-package com.fatec.TrabLabEng.StockSystem;
+package org.fatec.trabLabEng.stockSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
