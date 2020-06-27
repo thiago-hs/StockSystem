@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/entradas")
-public class EntradasController {
+@RequestMapping("/cidades")
+public class CidadeController {
 
 	@GetMapping(produces="application/json")
 	public @ResponseBody  ArrayList<String> index(){
-	    ArrayList<String> entradas = new ArrayList();
+	    ArrayList<String> cidades = new ArrayList();
 
-		return entradas;
+		return cidades;
 	}
 }
