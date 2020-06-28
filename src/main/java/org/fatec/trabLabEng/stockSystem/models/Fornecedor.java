@@ -16,7 +16,7 @@ public class Fornecedor implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int codFornecedor;
-	
+	private int codCidade;
 	private String nomeFornecedor;
 	private String endereco;
 	private String bairro;
@@ -26,7 +26,7 @@ public class Fornecedor implements Serializable{
 	private String tel;
 	
 	@ManyToOne
-	private Cidade codCidade;
+	private Cidade cidade;
 
 	public int getCodFornecedor() {
 		return codFornecedor;
@@ -34,6 +34,14 @@ public class Fornecedor implements Serializable{
 
 	public void setCodFornecedor(int codFornecedor) {
 		this.codFornecedor = codFornecedor;
+	}
+
+	public int getCodCidade() {
+		return codCidade;
+	}
+
+	public void setCodCidade(int codCidade) {
+		this.codCidade = codCidade;
 	}
 
 	public String getNomeFornecedor() {
@@ -92,14 +100,11 @@ public class Fornecedor implements Serializable{
 		this.tel = tel;
 	}
 
-	public Cidade getCodCidade() {
-		return codCidade;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
-	public void setCodCidade(Cidade codCidade) {
-		this.codCidade = codCidade;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
-	
-	
-
 }
