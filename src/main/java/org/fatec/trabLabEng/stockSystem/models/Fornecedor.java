@@ -15,7 +15,7 @@ public class Fornecedor implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int codFornecedor;
+	private long codFornecedor;
 	
 	private String nomeFornecedor;
 	private String endereco;
@@ -28,11 +28,11 @@ public class Fornecedor implements Serializable{
 	@ManyToOne
 	private Cidade codCidade;
 
-	public int getCodFornecedor() {
+	public long getCodFornecedor() {
 		return codFornecedor;
 	}
 
-	public void setCodFornecedor(int codFornecedor) {
+	public void setCodFornecedor(long codFornecedor) {
 		this.codFornecedor = codFornecedor;
 	}
 
