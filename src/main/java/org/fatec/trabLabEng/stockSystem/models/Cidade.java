@@ -14,14 +14,14 @@ public class Cidade implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int codCidade;
+	private long codCidade;
 	private String cidade;
 	private String uf;
 	
-	public int getCodCidade() {
+	public long getCodCidade() {
 		return codCidade;
 	}
-	public void setCodCidade(int codCidade) {
+	public void setCodCidade(long codCidade) {
 		this.codCidade = codCidade;
 	}
 	public String getCidade() {
