@@ -1,11 +1,12 @@
 package org.fatec.trabLabEng.stockSystem.models;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Categoria implements Serializable {
@@ -17,7 +18,7 @@ public class Categoria implements Serializable {
 	private long codCategoria;
 	
 	private String nomeCategoria;
-
+	
 	public long getCodCategoria() {
 		return codCategoria;
 	}

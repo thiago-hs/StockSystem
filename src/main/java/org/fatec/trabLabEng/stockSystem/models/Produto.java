@@ -1,12 +1,15 @@
 package org.fatec.trabLabEng.stockSystem.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -21,12 +24,12 @@ public class Produto implements Serializable {
 	private double peso;
 	private int qntMin;
 	
-	@ManyToMany
+	@ManyToOne
 	private Fornecedor codFornecedor;
 	
-	@OneToOne
+	@ManyToOne
 	private Categoria codCategoria;
-
+	
 	public long getCodProduto() {
 		return codProduto;
 	}

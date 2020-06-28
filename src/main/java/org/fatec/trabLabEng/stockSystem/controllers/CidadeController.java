@@ -1,14 +1,9 @@
 package org.fatec.trabLabEng.stockSystem.controllers;
 
-import java.util.ArrayList;
-
-import org.fatec.trabLabEng.stockSystem.models.Categoria;
 import org.fatec.trabLabEng.stockSystem.models.Cidade;
-import org.fatec.trabLabEng.stockSystem.repository.CategoriaRepository;
 import org.fatec.trabLabEng.stockSystem.repository.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +36,7 @@ public class CidadeController {
 	@PostMapping()
 	public Cidade cadastraCidade(@RequestBody Cidade cidade){
 		cidadeRepository.save(cidade);
-		long codCidade = cidade.getCodCidade();
+		//long codCidade = cidade.getCodCidade();
 		return cidade;
 	}
 	

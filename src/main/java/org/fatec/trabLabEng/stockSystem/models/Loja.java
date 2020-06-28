@@ -1,11 +1,14 @@
 package org.fatec.trabLabEng.stockSystem.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -21,9 +24,9 @@ public class Loja implements Serializable {
 	private String endereco;
 	private String tel;
 	
-	@OneToOne
+	@ManyToOne
 	private Cidade codCidade;
-
+	
 	public long getCodLoja() {
 		return codLoja;
 	}

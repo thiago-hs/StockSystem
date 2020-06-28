@@ -1,7 +1,5 @@
 package org.fatec.trabLabEng.stockSystem.controllers;
 
-import java.util.ArrayList;
-
 import org.fatec.trabLabEng.stockSystem.models.Categoria;
 import org.fatec.trabLabEng.stockSystem.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +36,6 @@ public class CategoriaController {
 	@PostMapping()
 	public Categoria cadastraCategoria(@RequestBody Categoria categoria){
 		categoriaRepository.save(categoria);
-		long codCategoria = categoria.getCodCategoria();
 		return categoria;
 	}
 	

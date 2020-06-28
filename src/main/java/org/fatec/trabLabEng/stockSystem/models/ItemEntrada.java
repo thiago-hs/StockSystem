@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -21,10 +22,10 @@ public class ItemEntrada implements Serializable{
 	private int quantidade;
 	private double valor;
 
-	@OneToMany
+	@ManyToOne
 	private Produto codProduto;
 	
-	@OneToOne
+	@ManyToOne
 	private Entrada codEntrada;
 
 	public long getCodItemEntrada() {
