@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -27,8 +26,8 @@ public class Fornecedor implements Serializable{
 	private String cnpj;
 	private String tel;
 	
-	@ManyToOne
-	private Cidade codCidade;
+	@OneToMany
+	private List<Cidade> codCidade;
 	
 	public long getCodFornecedor() {
 		return codFornecedor;
@@ -94,13 +93,15 @@ public class Fornecedor implements Serializable{
 		this.tel = tel;
 	}
 
-	public Cidade getCodCidade() {
+	public List<Cidade> getCodCidade() {
 		return codCidade;
 	}
 
-	public void setCodCidade(Cidade codCidade) {
+	public void setCodCidade(List<Cidade> codCidade) {
 		this.codCidade = codCidade;
 	}
+
+
 	
 	
 
