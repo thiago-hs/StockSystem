@@ -44,7 +44,7 @@ public class FornecedorController {
 		
 		Fornecedor fornecedorBD = fornecedorRepository.findByCodFornecedor(codFornecedor);
 
-		fornecedorBD.setNomeFornecedor(fornecedor.getNomeFornecedor());
+		fornecedorBD.setNome(fornecedor.getNome());
 		fornecedorBD.setEndereco(fornecedor.getEndereco());
 		fornecedorBD.setBairro(fornecedor.getBairro());
 		fornecedorBD.setCep(fornecedor.getCep());

@@ -44,7 +44,7 @@ public class CategoriaController {
 		
 		Categoria categoriaBD = categoriaRepository.findByCodCategoria(codCategoria);
 
-		categoriaBD.setNomeCategoria(categoria.getNomeCategoria());
+		categoriaBD.setNome(categoria.getNome());
 		
 		categoriaRepository.save(categoriaBD);
 		

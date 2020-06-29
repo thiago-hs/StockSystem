@@ -17,7 +17,7 @@ public class Categoria implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long codCategoria;
 	
-	private String nomeCategoria;
+	private String nome;
 	
 	public long getCodCategoria() {
 		return codCategoria;
@@ -27,11 +27,12 @@ public class Categoria implements Serializable {
 		this.codCategoria = codCategoria;
 	}
 
-	public String getNomeCategoria() {
-		return nomeCategoria;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeCategoria(String nomeCategoria) {
-		this.nomeCategoria = nomeCategoria;
-	}	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 }

@@ -50,7 +50,7 @@ public class LojaController {
 		Loja lojaBD = lojaRepository.findByCodLoja(codLoja);
 
 		lojaBD.setCodLoja(loja.getCodLoja());
-		lojaBD.setNomeLoja(loja.getNomeLoja());
+		lojaBD.setNome(loja.getNome());
 		lojaBD.setEndereco(loja.getEndereco());
 		lojaBD.setTel(loja.getTel());
 		

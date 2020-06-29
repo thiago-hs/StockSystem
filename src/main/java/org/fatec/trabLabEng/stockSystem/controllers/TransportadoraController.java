@@ -46,7 +46,7 @@ public class TransportadoraController {
 		
 		Transportadora transportadoraBD = transportadoraRepository.findByCodTransportadora(codTransportadora);
 
-		transportadoraBD.setNomeTransportadora(transportadora.getNomeTransportadora());
+		transportadoraBD.setNome(transportadora.getNome());
 		transportadoraBD.setEndereco(transportadora.getEndereco());
 		transportadoraBD.setContato(transportadora.getContato());
 		transportadoraBD.setTel(transportadora.getTel());

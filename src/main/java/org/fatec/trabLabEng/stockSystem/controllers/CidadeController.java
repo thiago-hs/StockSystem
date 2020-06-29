@@ -45,7 +45,7 @@ public class CidadeController {
 		
 		Cidade cidadeDB = cidadeRepository.findByCodCidade(codCidade);
 
-		cidadeDB.setCidade(cidade.getCidade());
+		cidadeDB.setNome(cidade.getNome());
 		cidadeDB.setUf(cidade.getUf());
 		
 		cidadeRepository.save(cidadeDB);

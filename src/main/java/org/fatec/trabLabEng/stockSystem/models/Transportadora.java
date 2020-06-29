@@ -20,7 +20,7 @@ public class Transportadora implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long codTransportadora;
 	
-	private String nomeTransportadora;
+	private String nome;
 	private String endereco;
 	private String Contato;
 	private String tel;
@@ -36,12 +36,12 @@ public class Transportadora implements Serializable {
 		this.codTransportadora = codTransportadora;
 	}
 
-	public String getNomeTransportadora() {
-		return nomeTransportadora;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeTransportadora(String nomeTransportadora) {
-		this.nomeTransportadora = nomeTransportadora;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEndereco() {

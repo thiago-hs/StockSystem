@@ -20,7 +20,7 @@ public class Loja implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long codLoja;
 	
-	private String nomeLoja;
+	private String nome;
 	private String endereco;
 	private String tel;
 	
@@ -35,12 +35,12 @@ public class Loja implements Serializable {
 		this.codLoja = codLoja;
 	}
 
-	public String getNomeLoja() {
-		return nomeLoja;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeLoja(String nomeLoja) {
-		this.nomeLoja = nomeLoja;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEndereco() {

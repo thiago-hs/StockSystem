@@ -18,7 +18,7 @@ public class Fornecedor implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long codFornecedor;
 	
-	private String nomeFornecedor;
+	private String nome;
 	private String endereco;
 	private String bairro;
 	private String cep;
@@ -37,12 +37,12 @@ public class Fornecedor implements Serializable{
 		this.codFornecedor = codFornecedor;
 	}
 
-	public String getNomeFornecedor() {
-		return nomeFornecedor;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeFornecedor(String nomeFornecedor) {
-		this.nomeFornecedor = nomeFornecedor;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEndereco() {
