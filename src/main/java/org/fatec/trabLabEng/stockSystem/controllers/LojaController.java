@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/loja")
+@RequestMapping("/api/loja")
 public class LojaController {
 
 	@Autowired
