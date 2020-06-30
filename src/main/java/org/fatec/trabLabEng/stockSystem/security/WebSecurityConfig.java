@@ -1,4 +1,5 @@
-package org.fatec.trabLabEng.stockSystem.security;
+
+/*package org.fatec.trabLabEng.stockSystem.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -30,3 +31,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers();
 	}
 }
+
+*/
