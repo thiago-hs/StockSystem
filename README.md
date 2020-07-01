@@ -15,6 +15,20 @@ Esse projeto visa a criação de uma api web para um sistema de controle de esto
 ### BD Schema
 ![Image of Data Base Schema Diagram](https://raw.githubusercontent.com/thiago-hs/StockSystem/master/SCHEMA.png)
 
+### Rotas
+
+* **/**
+* **/categorias**
+* **/produtos**
+* **/entradas**
+* **/item-entradas**
+* **/saidas**
+* **/item-saidas**
+* **/fornecedores**
+* **/transportadoras**
+* **/lojas**
+* **/cidades**
+
 ### API
 
 * **/api/categoria** (GET,POST)
