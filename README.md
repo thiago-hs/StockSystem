@@ -2,17 +2,30 @@
 
 Esse projeto visa a criação de um sistema de controle de estoque. A aplicação está dividido nas camadas de controle, entidade, modelo e serviços. Sendo o backend 100% voltado para construção de uma web api utlizando spring boot, e o frontend sendo uma SPA (single page application ), construida com o react.
 
-### Integrantes do grupo 
+## Integrantes do grupo 
 
 * Thiago Henrique da Silva
 * Vitor Martinelli Lobo
 * Flavio Ribeiro
 
-### Professor
+## Professor
 
 * **ANTONIO RODRIGUES CARVALHO**
 
-### BD Schema
+### Como rodar o projeto
+1. Clone o repositório e abra-o no eclipse
+2. Espere as dependencias do pom.xml serem instaladas
+3. Crie em seu MySQL um banco de dados chamado 'estoque'
+4. Coloque as credenciais (login e senha) do seu banco no arquivo application.properties
+5. Inicie a aplicação a partir do arquivo StockSystemApplication.java
+6. Coloque no seu navegador [http://localhost:8080/](http://localhost:8080/) 
+
+### Tecnologias
+* Banck-end: Spring Boot
+* Front-end: React
+* Data Base: MySQL
+
+### DB Schema
 ![Image of Data Base Schema Diagram](https://raw.githubusercontent.com/thiago-hs/StockSystem/master/SCHEMA.png)
 
 ### Rotas
