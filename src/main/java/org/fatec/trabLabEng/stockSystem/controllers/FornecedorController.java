@@ -1,9 +1,12 @@
 package org.fatec.trabLabEng.stockSystem.controllers;
 
+import org.fatec.trabLabEng.stockSystem.models.Cidade;
 import org.fatec.trabLabEng.stockSystem.models.Fornecedor;
+import org.fatec.trabLabEng.stockSystem.repository.CidadeRepository;
 import org.fatec.trabLabEng.stockSystem.repository.FornecedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/fornecedor")
+@CrossOrigin(origins="*")
 public class FornecedorController {
 
 	@Autowired
 	private FornecedorRepository fornecedorRepository;
 	
+	@Autowired
+	private CidadeRepository cidadeRepository;
+
 	@GetMapping(produces="application/json")
 	public @ResponseBody  Iterable<Fornecedor> listaFornecedor(){
 		Iterable<Fornecedor> lista = fornecedorRepository.findAll();
@@ -35,6 +42,11 @@ public class FornecedorController {
 	
 	@PostMapping()
 	public Fornecedor cadastraFornecedor(@RequestBody Fornecedor fornecedor){
+		
+		Cidade cidade = cidadeRepository.findByCodCidade(fornecedor.getCodCidade());
+		
+		fornecedor.setCidade(cidade);
+		
 		fornecedorRepository.save(fornecedor);
 		return fornecedor;
 	}
@@ -43,6 +55,8 @@ public class FornecedorController {
 	public Fornecedor atualizaFornecedor(@PathVariable(value="codFornecedor") long codFornecedor, @RequestBody Fornecedor fornecedor){
 		
 		Fornecedor fornecedorBD = fornecedorRepository.findByCodFornecedor(codFornecedor);
+		
+		Cidade cidade = cidadeRepository.findByCodCidade(fornecedor.getCodCidade());
 
 		fornecedorBD.setNome(fornecedor.getNome());
 		fornecedorBD.setEndereco(fornecedor.getEndereco());
@@ -51,7 +65,7 @@ public class FornecedorController {
 		fornecedorBD.setEmail(fornecedor.getEmail());
 		fornecedorBD.setCnpj(fornecedor.getCnpj());
 		fornecedorBD.setTel(fornecedor.getTel());
-		fornecedorBD.setCodCidade(fornecedor.getCodCidade());
+		fornecedorBD.setCidade(cidade);
 		
 		fornecedorRepository.save(fornecedorBD);
 		

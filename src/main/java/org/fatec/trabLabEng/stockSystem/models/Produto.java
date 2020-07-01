@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.annotation.Transient;
+
 @Entity
 public class Produto implements Serializable {
 	
@@ -25,10 +27,16 @@ public class Produto implements Serializable {
 	private int qntMin;
 	
 	@ManyToOne
-	private Fornecedor codFornecedor;
+	private Fornecedor fornecedor;
+	
+	@Transient
+	private long codFornecedor;
 	
 	@ManyToOne
-	private Categoria codCategoria;
+	private Categoria categoria;
+	
+	@Transient
+	private long codCategoria;
 	
 	public long getCodProduto() {
 		return codProduto;
@@ -62,19 +70,36 @@ public class Produto implements Serializable {
 		this.qntMin = qntMin;
 	}
 
-	public Fornecedor getCodFornecedor() {
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	public long getCodFornecedor() {
 		return codFornecedor;
 	}
 
-	public void setCodFornecedor(Fornecedor codFornecedor) {
+	public void setCodFornecedor(long codFornecedor) {
 		this.codFornecedor = codFornecedor;
 	}
 
-	public Categoria getCodCategoria() {
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public long getCodCategoria() {
 		return codCategoria;
 	}
 
-	public void setCodCategoria(Categoria codCategoria) {
+	public void setCodCategoria(long codCategoria) {
 		this.codCategoria = codCategoria;
 	}
+
 }

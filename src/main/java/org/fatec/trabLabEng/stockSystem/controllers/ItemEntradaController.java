@@ -1,9 +1,14 @@
 package org.fatec.trabLabEng.stockSystem.controllers;
 
+import org.fatec.trabLabEng.stockSystem.models.Entrada;
 import org.fatec.trabLabEng.stockSystem.models.ItemEntrada;
+import org.fatec.trabLabEng.stockSystem.models.Produto;
+import org.fatec.trabLabEng.stockSystem.repository.EntradaRepository;
 import org.fatec.trabLabEng.stockSystem.repository.ItemEntradaRepository;
+import org.fatec.trabLabEng.stockSystem.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/itementrada")
+@CrossOrigin(origins="*")
 public class ItemEntradaController {
 	
 	@Autowired
 	private ItemEntradaRepository itemEntradaRepository;
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private EntradaRepository entradaRepository;
 	
 	@GetMapping(produces="application/json")
 	public @ResponseBody  Iterable<ItemEntrada> listaItemEntrada(){
@@ -37,6 +49,12 @@ public class ItemEntradaController {
 	
 	@PostMapping()
 	public ItemEntrada cadastraItemEntrada(@RequestBody ItemEntrada itemEntrada){
+		Entrada entrada = entradaRepository.findByCodEntrada(itemEntrada.getCodEntrada());
+		Produto produto = produtoRepository.findByCodProduto(itemEntrada.getCodProduto());
+
+		itemEntrada.setEntrada(entrada);
+		itemEntrada.setProduto(produto);
+		
 		itemEntradaRepository.save(itemEntrada);
 		return itemEntrada;
 	}
@@ -46,10 +64,13 @@ public class ItemEntradaController {
 		
 		ItemEntrada itemEntradaBD = itemEntradaRepository.findByCodItemEntrada(codItemEntrada);
 
+		Entrada entrada = entradaRepository.findByCodEntrada(itemEntrada.getCodEntrada());
+		Produto produto = produtoRepository.findByCodProduto(itemEntrada.getCodProduto());
+
+		itemEntradaBD.setEntrada(entrada);
+		itemEntradaBD.setProduto(produto);
 		itemEntradaBD.setQuantidade(itemEntrada.getQuantidade());
 		itemEntradaBD.setValor(itemEntrada.getValor());
-		itemEntradaBD.setCodProduto(itemEntrada.getCodProduto());
-		itemEntradaBD.setCodEntrada(itemEntrada.getCodEntrada());
 		
 		itemEntradaRepository.save(itemEntradaBD);
 		

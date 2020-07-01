@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.annotation.Transient;
+
 @Entity
 public class Saida implements Serializable{
 	
@@ -23,10 +25,16 @@ public class Saida implements Serializable{
 	private double total;
 	
 	@ManyToOne
-	private Loja codLoja;
+	private Loja loja;
+	
+	@Transient
+	private long codLoja;
 	
 	@ManyToOne
-	private Transportadora codTransportadora;
+	private Transportadora Transportadora;
+	
+	@Transient
+	private long codTransportadora;
 	
 	public long getCodSaida() {
 		return codSaida;
@@ -44,19 +52,36 @@ public class Saida implements Serializable{
 		this.total = total;
 	}
 
-	public Loja getCodLoja() {
+	public Loja getLoja() {
+		return loja;
+	}
+
+	public void setLoja(Loja loja) {
+		this.loja = loja;
+	}
+
+	public long getCodLoja() {
 		return codLoja;
 	}
 
-	public void setCodLoja(Loja codLoja) {
+	public void setCodLoja(long codLoja) {
 		this.codLoja = codLoja;
 	}
 
-	public Transportadora getCodTransportadora() {
+	public Transportadora getTransportadora() {
+		return Transportadora;
+	}
+
+	public void setTransportadora(Transportadora transportadora) {
+		Transportadora = transportadora;
+	}
+
+	public long getCodTransportadora() {
 		return codTransportadora;
 	}
 
-	public void setCodTransportadora(Transportadora codTransportadora) {
+	public void setCodTransportadora(long codTransportadora) {
 		this.codTransportadora = codTransportadora;
 	}
+	
 }

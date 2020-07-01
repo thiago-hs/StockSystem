@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.annotation.Transient;
+
 @Entity
 public class ItemEntrada implements Serializable{
 	
@@ -23,10 +25,16 @@ public class ItemEntrada implements Serializable{
 	private double valor;
 
 	@ManyToOne
-	private Produto codProduto;
+	private Produto produto;
+	
+	@Transient
+	private long codProduto;
 	
 	@ManyToOne
-	private Entrada codEntrada;
+	private Entrada entrada;
+	
+	@Transient
+	private long codEntrada;
 
 	public long getCodItemEntrada() {
 		return codItemEntrada;
@@ -52,21 +60,36 @@ public class ItemEntrada implements Serializable{
 		this.valor = valor;
 	}
 
-	public Produto getCodProduto() {
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	public long getCodProduto() {
 		return codProduto;
 	}
 
-	public void setCodProduto(Produto codProduto) {
+	public void setCodProduto(long codProduto) {
 		this.codProduto = codProduto;
 	}
 
-	public Entrada getCodEntrada() {
+	public Entrada getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(Entrada entrada) {
+		this.entrada = entrada;
+	}
+
+	public long getCodEntrada() {
 		return codEntrada;
 	}
 
-	public void setCodEntrada(Entrada codEntrada) {
+	public void setCodEntrada(long codEntrada) {
 		this.codEntrada = codEntrada;
 	}
-	
 	
 }

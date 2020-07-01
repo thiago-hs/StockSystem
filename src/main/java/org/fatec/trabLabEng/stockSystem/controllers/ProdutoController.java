@@ -1,10 +1,16 @@
 package org.fatec.trabLabEng.stockSystem.controllers;
 
+import org.fatec.trabLabEng.stockSystem.models.Categoria;
+import org.fatec.trabLabEng.stockSystem.models.Entrada;
+import org.fatec.trabLabEng.stockSystem.models.Fornecedor;
 import org.fatec.trabLabEng.stockSystem.models.Produto;
+import org.fatec.trabLabEng.stockSystem.repository.CategoriaRepository;
+import org.fatec.trabLabEng.stockSystem.repository.FornecedorRepository;
 import org.fatec.trabLabEng.stockSystem.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +23,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/produto")
+@CrossOrigin(origins="*")
 public class ProdutoController {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
+	@Autowired
+	private FornecedorRepository fornecedorRepository;
 	
 	@GetMapping(produces="application/json")
 	public @ResponseBody Iterable<Produto> listaProduto(){
@@ -38,6 +51,12 @@ public class ProdutoController {
 	
 	@PostMapping()
 	public Produto cadastraproduto(@RequestBody Produto produto){
+		Categoria categoria = categoriaRepository.findByCodCategoria(produto.getCodCategoria());
+		Fornecedor fornecedor = fornecedorRepository.findByCodFornecedor(produto.getCodFornecedor());
+		
+		produto.setCategoria(categoria);
+		produto.setFornecedor(fornecedor);
+		
 		produtoRepository.save(produto);
 		return produto;
 	}
@@ -47,11 +66,14 @@ public class ProdutoController {
 		
 		Produto produtoBD = produtoRepository.findByCodProduto(codProduto);
 
+		Categoria categoria = categoriaRepository.findByCodCategoria(produto.getCodCategoria());
+		Fornecedor fornecedor = fornecedorRepository.findByCodFornecedor(produto.getCodFornecedor());
+		
+		produtoBD.setCategoria(categoria);
+		produtoBD.setFornecedor(fornecedor);
 		produtoBD.setDescricao(produto.getDescricao());
 		produtoBD.setPeso(produto.getPeso());
 		produtoBD.setQntMin(produto.getQntMin());
-		produtoBD.setCodFornecedor(produto.getCodFornecedor());
-		produtoBD.setCodCategoria(produto.getCodCategoria());
 
 		produtoRepository.save(produtoBD);
 		

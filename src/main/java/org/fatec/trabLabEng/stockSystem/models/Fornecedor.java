@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.springframework.data.annotation.Transient;
 
 @Entity
 public class Fornecedor implements Serializable{
@@ -26,9 +29,12 @@ public class Fornecedor implements Serializable{
 	private String cnpj;
 	private String tel;
 	
-	@OneToMany
-	private List<Cidade> codCidade;
+	@ManyToOne
+	private Cidade cidade;
 	
+	@Transient
+	private long codCidade;
+
 	public long getCodFornecedor() {
 		return codFornecedor;
 	}
@@ -93,16 +99,20 @@ public class Fornecedor implements Serializable{
 		this.tel = tel;
 	}
 
-	public List<Cidade> getCodCidade() {
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+	public long getCodCidade() {
 		return codCidade;
 	}
 
-	public void setCodCidade(List<Cidade> codCidade) {
+	public void setCodCidade(long codCidade) {
 		this.codCidade = codCidade;
 	}
-
-
-	
-	
 
 }

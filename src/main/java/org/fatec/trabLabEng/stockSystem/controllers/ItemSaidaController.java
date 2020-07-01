@@ -1,10 +1,17 @@
 package org.fatec.trabLabEng.stockSystem.controllers;
 
+import org.fatec.trabLabEng.stockSystem.models.Entrada;
 import org.fatec.trabLabEng.stockSystem.models.ItemSaida;
+import org.fatec.trabLabEng.stockSystem.models.Produto;
+import org.fatec.trabLabEng.stockSystem.models.Saida;
+import org.fatec.trabLabEng.stockSystem.repository.EntradaRepository;
 import org.fatec.trabLabEng.stockSystem.repository.ItemSaidaRepository;
+import org.fatec.trabLabEng.stockSystem.repository.ProdutoRepository;
+import org.fatec.trabLabEng.stockSystem.repository.SaidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +24,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/itemsaida")
+@CrossOrigin(origins="*")
 public class ItemSaidaController {
 
 	@Autowired
 	private ItemSaidaRepository itemSaidaRepository;
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private SaidaRepository saidaRepository;
 	
 	@GetMapping(produces="application/json")
 	public @ResponseBody Iterable<ItemSaida> listaItemSaida(){
@@ -38,6 +52,12 @@ public class ItemSaidaController {
 	
 	@PostMapping()
 	public ItemSaida cadastraItemSaida(@RequestBody ItemSaida itemSaida){
+		Saida saida = saidaRepository.findByCodSaida(itemSaida.getCodSaida());
+		Produto produto = produtoRepository.findByCodProduto(itemSaida.getCodProduto());
+
+		itemSaida.setSaida(saida);
+		itemSaida.setProduto(produto);
+		
 		itemSaidaRepository.save(itemSaida);
 		return itemSaida;
 	}
@@ -47,10 +67,13 @@ public class ItemSaidaController {
 		
 		ItemSaida itemSaidaBD = itemSaidaRepository.findByCodItemSaida(codItemSaida);
 
+		Saida saida = saidaRepository.findByCodSaida(itemSaida.getCodSaida());
+		Produto produto = produtoRepository.findByCodProduto(itemSaida.getCodProduto());
+
+		itemSaidaBD.setSaida(saida);
+		itemSaidaBD.setProduto(produto);
 		itemSaidaBD.setQuantidade(itemSaida.getQuantidade());
 		itemSaidaBD.setValor(itemSaida.getValor());
-		itemSaidaBD.setCodProduto(itemSaida.getCodProduto());
-		itemSaidaBD.setCodSaida(itemSaida.getCodSaida());
 		
 		itemSaidaRepository.save(itemSaidaBD);
 		

@@ -19,17 +19,6 @@ public class Cidade implements Serializable {
 	private String nome;
 	private String uf;
 
-	@ManyToOne
-	private Fornecedor fornecedor;
-
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
 	public long getCodCidade() {
 		return codCidade;
 	}

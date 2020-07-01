@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.annotation.Transient;
+
 @Entity
 public class Transportadora implements Serializable {
 	
@@ -26,7 +28,10 @@ public class Transportadora implements Serializable {
 	private String tel;
 	
 	@ManyToOne
-	private Cidade codCidade;
+	private Cidade cidade;
+	
+	@Transient
+	private long codCidade;
 	
 	public long getCodTransportadora() {
 		return codTransportadora;
@@ -68,11 +73,19 @@ public class Transportadora implements Serializable {
 		this.tel = tel;
 	}
 
-	public Cidade getCodCidade() {
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+	public long getCodCidade() {
 		return codCidade;
 	}
 
-	public void setCodCidade(Cidade codCidade) {
+	public void setCodCidade(long codCidade) {
 		this.codCidade = codCidade;
 	}
 }
