@@ -14,9 +14,9 @@ Esse projeto visa a criação de um sistema de controle de estoque. A aplicaçã
 
 ### Como rodar o projeto
 1. Clone o repositório e abra-o no eclipse
-2. Espere as dependencias do pom.xml serem instaladas
+2. Espere as dependências do pom.xml serem instaladas
 3. Crie em seu MySQL um banco de dados chamado 'estoque'
-4. Coloque as credenciais (login e senha) do seu banco no arquivo application.properties
+4. Coloque as credenciais (login e senha) do seu MySQL no arquivo application.properties
 5. Inicie a aplicação a partir do arquivo StockSystemApplication.java
 6. Coloque no seu navegador [http://localhost:8080/](http://localhost:8080/) 
 
