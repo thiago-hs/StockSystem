@@ -1,12 +1,11 @@
-# Projeto de Laboratório de Engenharia de Software
+# Projeto de Programação Orientada a Objetos
 
-Esse projeto visa a criação de um sistema de controle de estoque. A aplicação está dividido nas camadas de controle, entidade, modelo e serviços. Sendo o backend 100% voltado para construção de uma web api utlizando spring boot, e o frontend sendo uma SPA (single page application ), construida com o react.
+Esse projeto visa a criação de um sistema de controle de estoque. A aplicação está dividido nas camadas de controle, entidade, modelo e serviços. Sendo o backend 100% voltado para construção de uma web api utlizando spring boot, e o frontend sendo uma SPA (single page application), construida com o react.
 
 ## Integrantes do grupo 
 
 * Thiago Henrique da Silva
 * Vitor Martinelli Lobo
-* Flavio Ribeiro
 
 ## Professor
 
