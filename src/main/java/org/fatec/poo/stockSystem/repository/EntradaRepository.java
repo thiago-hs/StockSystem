@@ -1,0 +1,10 @@
+package org.fatec.poo.stockSystem.repository;
+
+import org.fatec.poo.stockSystem.models.Entrada;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EntradaRepository extends JpaRepository<Entrada,Long>{
+
+	Entrada findByCodEntrada(long codEntrada);
+
+}
